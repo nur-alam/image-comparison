@@ -1,14 +1,14 @@
 var imageComparison = function () {
-    const dragCircles = document.querySelectorAll('.comparison-scrollCircle');
-    const imageComparisonRoot = document.querySelector('.qubely-block-image-comparison');
-    const imageComparisonimages = document.querySelectorAll('.qubely-block-image-comparison img');
-    imageComparisonimages.forEach( (eachImg) => {
+    var dragCircles = document.querySelectorAll('.comparison-scrollCircle');
+    var imageComparisonRoot = document.querySelector('.qubely-block-image-comparison');
+    var imageComparisonimages = document.querySelectorAll('.qubely-block-image-comparison img');
+    imageComparisonimages.forEach( function (eachImg) {
         eachImg.style.width = imageComparisonRoot.offsetWidth + 'px';
     });
 
-    dragCircles.forEach( (dragCircle) => {
-        const container = dragCircle.parentNode;
-        const resizeElement = container.querySelector('.comparison-resize-img');
+    dragCircles.forEach( function (dragCircle) {
+        var container = dragCircle.parentNode;
+        var resizeElement = container.querySelector('.comparison-resize-img');
         dragCircle.addEventListener('mousedown', function mouseDownTrigger(event) {
             if(event.which == 3 || event.which == 2) {
                 console.log("right click trigger!");
@@ -17,20 +17,20 @@ var imageComparison = function () {
             }
             draging(dragCircle);
         });
-        let body = document.body;
-        dragCircle.addEventListener('touchstart', () => {
+        var body = document.body;
+        dragCircle.addEventListener('touchstart', function () {
             body.style.background = 'yellow';
         });
-        dragCircle.addEventListener('touchend', () => {
+        dragCircle.addEventListener('touchend', function () {
             body.style.background = 'green';
         });
-        dragCircle.addEventListener('touchmove', () => {
+        dragCircle.addEventListener('touchmove', function () {
             body.style.background = 'blue';
             moving();
         });
-        let moving = () => {
-            let pageX = (event.pageX !== undefined) ? event.pageX : event.changedTouches[0].clientX;
-            let containerOffset = container.getBoundingClientRect().left - 40,
+        function moving() {
+            var pageX = (event.pageX !== undefined) ? event.pageX : event.changedTouches[0].clientX;
+            var containerOffset = container.getBoundingClientRect().left - 40,
                 containerWidth = container.offsetWidth,
                 movingValue = ( ( pageX - 37 )  - containerOffset ) / (containerWidth / 100);
             if(movingValue < 5)
@@ -40,9 +40,9 @@ var imageComparison = function () {
             dragCircle.style.left = movingValue+'%';
             resizeElement.style.width = movingValue+'%';
         };
-        const draging = (dragCircle) => {
+        var draging = (dragCircle) => {
             container.addEventListener('mousemove', moving);
-            let dragRevoveFunc = (event) => {
+            var dragRevoveFunc = function (event) {
                 container.removeEventListener('mousemove', moving);
             };
             container.addEventListener('mouseup', dragRevoveFunc);
