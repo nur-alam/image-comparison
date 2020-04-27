@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Coparison</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="qubely-block-image-comparison">
+            <img src="img-original.jpg" alt="Original Image">
+            <span class="comparison-image-text">Original</span>
+            <div class="comparison-resize-img">
+                <img src="img-modified.jpg" alt="Modified Image">
+                <span class="comparison-image-text">Modified</span>
+            </div>
+            <span class="comparison-scrollCircle"></span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+const dragCircle = document.querySelector('.comparison-scrollCircle');
+
+dragCircle.addEventListener('mousedown', (event) => {
+    const container = event.target.parentNode;
+    const resizeElement = container.querySelector('.comparison-resize-img');
+    draging(container, dragCircle, resizeElement);
+    //console.log(container.querySelector('.cd-image-label'));
+});
+
+const draging = (container, dragCircle, resizeElement) => {
+
+    dragCircle.classList.add('draggable');
+    resizeElement.classList.add('resizable');
+
+    const dragRevoveFunc = (event) => {
+        //const container = event.target.parentNode;
+        //const resizeElement = container.querySelector('.comparison-resize-img');
+        dragCircle.classList.remove('draggable');
+        resizeElement.classList.remove('resizable');
+        console.log("drag remove");
+        container.removeEventListener('mousemove', moving);
+    }
+    
+    //console.log(dragCircle.offsetWidth);
+    moving = () => {
+        
+        var dragWidth = dragCircle.offsetWidth,
+            containerOffset = container.offsetLeft,
+            xPosition = ((dragCircle.offsetLeft - (dragWidth / 2)) + dragWidth + containerOffset) - event.pageX,
+            containerWidth = container.offsetWidth,
+            minLeft = containerOffset + 10,
+            maxLeft = containerOffset + containerWidth - dragWidth - 10;
+            // console.log(dragCircle.offsetLeft - dragWidth);
+            leftValue = event.pageX + xPosition - dragWidth;
+            widthVlue = (leftValue + dragWidth / 2 - containerOffset) * 100/containerWidth+'%';
+            dragCircle.style.left = widthVlue;
+            console.log(widthVlue);
+
+        // dragCircle.style.left = '40%';
+        // let resizeElementWidth = resizeElement.offsetWidth - (event.pageX);
+        // resizeElement.style.width = '40%';
+        // dragCircle.style.left = (event.pageX - (event.pageX - dragCircle.offsetWidth) ) + "px";
+        // dragCircle.style.left = (event.pageX - (event.pageX - resizeElement.offsetWidth)) + "px";
+    } 
+    
+    container.addEventListener('mousemove', moving);
+    container.addEventListener('mouseup',dragRevoveFunc);
+    container.addEventListener('click',dragRevoveFunc);
+
+}
+ -->
+
+
+
+<!-- var dragWidth = dragCircle.offsetWidth,
+            containerOffset = container.offsetLeft,
+            xPosition = ((dragCircle.offsetLeft - (dragWidth / 2)) + dragWidth + containerOffset) - event.pageX,
+            containerWidth = container.offsetWidth,
+            minLeft = containerOffset + 10,
+            maxLeft = containerOffset + containerWidth - dragWidth - 10;
+            // console.log(dragCircle.offsetLeft - dragWidth);
+            leftValue = event.pageX + xPosition - dragWidth;
+            widthVlue = (leftValue + dragWidth / 2 - containerOffset) * 100/containerWidth+'%';
+            dragCircle.style.left = widthVlue;
+            console.log(widthVlue); -->
