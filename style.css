@@ -9,6 +9,11 @@
     margin: 0 auto;
     background-color: aqua;
 }
+@media(max-width : 991px) {
+    .wrapper{
+        width: 100%;
+    }
+}
 
 .qubely-block-image-comparison {
     position: relative;
